@@ -60,4 +60,15 @@
 /web/css/
 /web/js/
 
+
+###> symfony/framework-bundle ###
+/.env.local
+/.env.local.php
+/.env.*.local
+/public/bundles/
+/var/
+/vendor/
+###< symfony/framework-bundle ###
+
+
 # End of https://www.gitignore.io/api/symfony

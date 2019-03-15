@@ -1,4 +1,4 @@
-version: '3.4'
+version: '2'
 services:
     postgres:
         image: postgres
@@ -6,9 +6,9 @@ services:
             - '5433:5432'
 
     php:
-        build: php-fpm
+        build: ./docker/php-fpm
         ports:
-            '9002:9000'
+            - '9002:9000'
         volumes:
             - ./:/var/www/symfony:cached
             - ./logs/symfony:/var/www/symfony/var/logs:cached
@@ -16,7 +16,7 @@ services:
             - postgres
 
     nginx:
-        build: nginx
+        build: ./docker/nginx
         ports:
             - '8080:80'
         links:

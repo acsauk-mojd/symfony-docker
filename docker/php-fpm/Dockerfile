@@ -4,7 +4,7 @@ RUN apt-get update
 
 RUN apt-get install -y zlib1g-dev libpq-dev git libicu-dev libxml2-dev \
     && docker-php-ext-configure intl \
-    && docker-pgp-ext-install intl \
+    && docker-php-ext-install intl \
     && docker-php-ext-configure pgsql -with-pgsql=/usr/local/pgsql \
     && docker-pgp-ext-install pdo pdo_pgsql pgsql \
     && docker-php-ext-install zip xml

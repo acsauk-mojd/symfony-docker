@@ -1,0 +1,5 @@
+172.20.0.1 - - [25/Mar/2019:14:53:57 +0000] "GET /form] HTTP/1.1" 404 32592 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.75 Safari/537.36"
+172.20.0.1 - - [25/Mar/2019:14:53:57 +0000] "GET /favicon.ico HTTP/1.1" 404 32658 "http://localhost:1204/form]" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.75 Safari/537.36"
+172.20.0.1 - - [25/Mar/2019:14:54:01 +0000] "GET /form HTTP/1.1" 200 101 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.75 Safari/537.36"
+172.20.0.1 - - [25/Mar/2019:15:00:52 +0000] "GET / HTTP/1.1" 499 0 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_3) AppleWebKit/537.36 (KHTML, like Gecko) Kitematic/0.17.6 Chrome/59.0.3071.115 Electron/1.8.8 Safari/537.36"
+192.168.32.1 - - [25/Mar/2019:16:41:58 +0000] "GET /form HTTP/1.1" 200 101 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.75 Safari/537.36"

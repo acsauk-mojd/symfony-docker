@@ -71,5 +71,6 @@
 .idea/
 ###< symfony/framework-bundle ###
 
+/logs
 
 # End of https://www.gitignore.io/api/symfony

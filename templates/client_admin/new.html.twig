@@ -1,9 +1,56 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    {{ form_start(clientForm) }}
-        {{ form_widget(clientForm) }}
+    <h2>Creating a new module/class with new functionality</h2>
 
-        <button type="submit">Create Client</button>
+    {{ form_start(clientForm) }}
+    {{ form_widget(clientForm) }}
+
+    <button type="submit">Create Client</button>
     {{ form_end(clientForm) }}
+
+    <div>
+        <code style="white-space: pre-wrap;">
+            ... old form class
+            class ClientFormType extends AbstractType
+            {
+                ...
+            }
+
+            ... new form class
+            class ClientFormTypeEmail extends AbstractType
+            {
+                ...
+            }
+
+            ... controller
+            public function __construct(string $emailEnabled)
+            {
+                $this->emailEnabled = $emailEnabled;
+            }
+
+            public function index()
+            {
+                $form = $this->emailEnabled == 1 ?
+                $this->createForm(ClientFormTypeEmail::class) : $this->createForm(ClientFormType::class);
+                ...
+            }
+        </code>
+    </div>
+
+    <p>Pros:</p>
+
+    <ul>
+        <li>Leaves existing code untouched leading to clearer intentions and simpler maintenance</li>
+        <li>No need to update existing tests</li>
+        <li>Opens up possibilities for further abstractions using feature flag aware factories (see below)</li>
+    </ul>
+
+    <p>Cons:</p>
+
+    <ul>
+        <li>Duplication of code during use</li>
+        <li>Could become complicated with a large number of flags in production</li>
+    </ul>
+
 {% endblock %}

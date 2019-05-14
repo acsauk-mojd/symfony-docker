@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace App\Form;
 
@@ -6,12 +6,13 @@ namespace App\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 
-class ClientFormType extends AbstractType
+class ClientFormTypeEmail extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
             ->add('Name')
-            ->add('DOB');
+            ->add('DOB')
+            ->add('EmailAddress');
     }
 }

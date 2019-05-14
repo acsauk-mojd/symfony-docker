@@ -10,6 +10,8 @@ services:
 
     php:
         build: ./docker/php-fpm
+        environment:
+            - FLAG_EMAIL_ENABLED=false
         ports:
             - '9002:9000'
         volumes:
@@ -30,4 +32,4 @@ services:
         volumes_from:
             - php
         volumes:
-            - ./logs/nginx/:/var/log/nginx:cached
+            - ./logs/nginx/:/var/logs/nginx:cached

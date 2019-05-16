@@ -23,6 +23,11 @@
                 ...
             }
 
+            ...services config
+            App\Controller\FormController:
+                arguments:
+                    $emailEnabled: '%env(FLAG_EMAIL_ENABLED)%'
+
             ... controller
             public function __construct(string $emailEnabled)
             {

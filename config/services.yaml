@@ -29,3 +29,6 @@ services:
     App\Controller\FormController:
         arguments:
             $emailEnabled: '%env(FLAG_EMAIL_ENABLED)%'
+
+    App\Form\ClientFormTypeFactory:
+        arguments: ['%env(FLAG_EMAIL_ENABLED)%']

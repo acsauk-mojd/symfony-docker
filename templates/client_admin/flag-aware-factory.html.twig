@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h2>Feature flag aware factories</h2>
+
+    {{ form_start(clientForm) }}
+    {{ form_widget(clientForm) }}
+
+    <button type="submit">Create Client</button>
+    {{ form_end(clientForm) }}
+
+    <div>
+        <code style="white-space: pre-wrap;">
+            ...services config
+            App\Form\ClientFormTypeFactory:
+                arguments: ['%env(FLAG_EMAIL_ENABLED)%']
+
+            ... controller
+            public function __construct(ClientFormTypeFactory $factory)
+            {
+                $this->factory = $factory;
+            }
+
+            public function index()
+            {
+                $formType = $this->factory->createClientFormType();
+                $form = $this->createForm(get_class($formType));
+                ...
+            }
+        </code>
+    </div>
+
+    <p>Pros:</p>
+
+    <ul>
+        <li>Centralises logic of feature flag in factories rather than classes</li>
+        <li>Opens up possibility of injecting flags from an external service</li>
+    </ul>
+
+    <p>Cons:</p>
+
+    <ul>
+        <li>Still has duplication of code during use</li>
+        <li>Could become complicated with a large number of flags in production</li>
+    </ul>
+
+{% endblock %}

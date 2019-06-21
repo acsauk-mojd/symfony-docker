@@ -33,7 +33,7 @@ class FormController extends AbstractController
         $form = $this->emailEnabled == 1 ?
             $this->createForm(ClientFormTypeEmail::class) : $this->createForm(ClientFormType::class);
 
-        return $this->render('client_admin/new.html.twig', [
+        return $this->render('client_admin/new-class.html.twig', [
             'clientForm' => $form->createView()
         ]);
     }
@@ -43,10 +43,10 @@ class FormController extends AbstractController
      */
     public function flagAwareFactory()
     {
-        $formType = $this->factory->createClientFormType();
+        $formType = $this->factory->createClientForm();
         $form = $this->createForm(get_class($formType));
 
-        return $this->render('client_admin/new.html.twig', [
+        return $this->render('client_admin/flag-aware-factory.html.twig', [
             'clientForm' => $form->createView()
         ]);
     }

@@ -23,9 +23,15 @@
 
             public function index()
             {
-                $formType = $this->factory->createClientFormType();
+                $formType = $this->factory->createClientForm();
                 $form = $this->createForm(get_class($formType));
                 ...
+            }
+
+            ... ClientFormTypeFactory
+            public function createClientForm()
+            {
+            return $this->emailEnabled == '1' ? new ClientFormTypeEmail() : new ClientFormType();
             }
         </code>
     </div>

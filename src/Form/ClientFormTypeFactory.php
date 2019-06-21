@@ -18,6 +18,6 @@ class ClientFormTypeFactory
 
     public function createClientForm()
     {
-        return $this->emailEnabled == 'True' ? new ClientFormTypeEmail() : new ClientFormType();
+        return $this->emailEnabled == '1' ? new ClientFormTypeEmail() : new ClientFormType();
     }
 }

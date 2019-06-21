@@ -37,7 +37,7 @@
             public function index()
             {
                 $form = $this->emailEnabled == 1 ?
-                $this->createForm(ClientFormTypeEmail::class) : $this->createForm(ClientFormType::class);
+                    $this->createForm(ClientFormTypeEmail::class) : $this->createForm(ClientFormType::class);
                 ...
             }
         </code>
